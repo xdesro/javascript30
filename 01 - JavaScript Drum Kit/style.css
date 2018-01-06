@@ -1,40 +1,69 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono");
 html {
   font-size: 10px;
-  background: url(http://i.imgur.com/b9r5sEL.jpg) bottom center;
-  background-size: cover;
+  background-image: linear-gradient(to bottom, #fff, #f2f2f2);
 }
-body,html {
+body,
+html {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "Roboto Mono", monospace;
 }
-
-.keys {
+body {
   display: flex;
-  flex: 1;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
+}
+body:before {
+  z-index: -1;
+  content: "drums";
+  text-transform: uppercase;
+  position: absolute;
+  color: #f2f2f2;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: 0 auto;
+  font-weight: bold;
+  font-size: 15vmin;
+  letter-spacing: 9vmin;
+  margin-right: -9vmin;
+}
+kbd {
+  font-family: "Roboto Mono", monospace;
+}
+.keys {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+.keys:before {
+  content: "press a key.";
+  color: #e2e2e2;
+  position: absolute;
+  top: -10px;
+  left: 10px;
 }
 
 .key {
-  border: .4rem solid black;
-  border-radius: .5rem;
   margin: 1rem;
   font-size: 1.5rem;
-  padding: 1rem .5rem;
-  transition: all .07s ease;
+  padding: 1rem 0.5rem;
+  transition: all 0.07s ease;
   width: 10rem;
   text-align: center;
-  color: white;
-  background: rgba(0,0,0,0.4);
-  text-shadow: 0 0 .5rem black;
+  color: #e2e2e2;
+  background: #fff;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.02);
 }
 
 .playing {
   transform: scale(1.1);
-  border-color: #ffc600;
-  box-shadow: 0 0 1rem #ffc600;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
+  color: #d2d2d2;
 }
 
 kbd {
@@ -44,7 +73,6 @@ kbd {
 
 .sound {
   font-size: 1.2rem;
-  text-transform: uppercase;
-  letter-spacing: .1rem;
-  color: #ffc600;
+  letter-spacing: 0.1rem;
+  color: #e2e2e2;
 }
