@@ -58,6 +58,8 @@ kbd {
   color: #e2e2e2;
   background: #fff;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.02);
+  cursor:pointer;
+  user-select: none;
 }
 
 .playing {
