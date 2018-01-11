@@ -29,7 +29,7 @@ input {
   margin: 50px auto; }
 
 input.search {
-  margin: 0;
+  margin: 0 0 10px;
   text-align: center;
   outline: 0;
   font-family: "Roboto Mono", monospace;
