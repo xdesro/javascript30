@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:100,400");
+$colors: #eafdf8, #e5e9ec, #ddcad9, #d1b1cb, #7c616c;
+html {
+  box-sizing: border-box;
+  font-family: "Roboto Mono", monospace;
+  font-weight: lighter;
+  font-size: 20px;
+}
+body {
+  &:before {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, #fff, #f2f2f2);
+  }
+}
+* {
+  box-sizing: inherit;
+  &:before,
+  &:after {
+    box-sizing: inherit;
+  }
+}
+
+input {
+  width: 100%;
+  padding: 20px;
+}
+
+.search-form {
+  max-width: 400px;
+  margin: 50px auto;
+}
+
+input.search {
+  margin: 0;
+  text-align: center;
+  outline: 0;
+  font-family: "Roboto Mono", monospace;
+  border: 0px solid #f7f7f7;
+  width: 120%;
+  left: -10%;
+  position: relative;
+  top: 10px;
+  z-index: 2;
+  font-size: 40px;
+  color: #222;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.12);
+  &::placeholder {
+    color: #e2e2e2;
+  }
+}
+
+.suggestions {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  li {
+    background: white;
+    list-style: none;
+    border-bottom: 1px solid #d8d8d8;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.14);
+    margin: 0;
+    padding: 20px;
+    transition: background 0.2s;
+    display: flex;
+    justify-content: space-between;
+    text-transform: capitalize;
+    @for $i from 1 through 5 {
+      &:nth-child(5n + #{$i}) {
+        .hl {
+          background: nth($colors, $i);
+        }
+      }
+    }
+  }
+}
+
+span {
+  &.name {
+    font-size: 18px;
+  }
+  &.population {
+    font-size: 15px;
+    color: #222;
+  }
+}
