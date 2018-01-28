@@ -1,65 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Mouse Shadow</title>
 </head>
+
 <body>
 
   <div class="hero">
-    <h1 contenteditable>🔥WOAH!</h1>
+    <h1 contenteditable>🏴󠁥󠁣󠁸󠁿WOAH!</h1>
   </div>
 
   <style>
-  html {
-    color:black;
-    font-family: sans-serif;
-  }
-
-  body {
-    margin: 0;
-  }
-
-  .hero {
-    min-height: 100vh;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    color:black;
-  }
-
-  h1 {
-    text-shadow: 10px 10px 0 rgba(0,0,0,1);
-    font-size: 100px;
-  }
-  </style>
-
-<script>
-  const hero = document.querySelector('.hero');
-  const text= hero.querySelector('h1');
-  const walk = 100;
-
-  const shadow = e => {
-    const { offsetWidth: width, offsetHeight: height } = hero;
-    let { offsetX: x, offsetY: y } = e;
-    if(hero !== e.target) {
-      x = x + e.target.offsetLeft;
-      y = y + e.target.offsetTop;
+    @import url("https://fonts.googleapis.com/css?family=Roboto+Mono:100,400");
+    :root {
+      --x: 0px;
+      --y: 0px;
     }
 
-    const xWalk = Math.round((x / width * walk) - (walk / 2));
-    const yWalk = Math.round((y / height * walk) - (walk / 2));
+    html {
+      font-family: "Roboto Mono", monospace;
+      letter-spacing: 2;
+      text-transform: lowercase;
+    }
 
-    text.style.textShadow =`
-      ${xWalk}px ${yWalk}px 0 rgba(255,0,255,.7),
-      ${xWalk * -1}px ${yWalk}px 0 rgba(255,255,0,.7),
-      ${yWalk}px ${xWalk * -1}px 0 rgba(0,255,255,.7),
-      ${yWalk * -1}px ${xWalk * -1}px 0 rgba(0,0,0,.7)
-    `;
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(to bottom, #fff, #f2f2f2);
+    }
 
-  }
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-  hero.addEventListener('mousemove', shadow);
-</script>
+    h1 {
+      font-size: 100px;
+      color: rgba(34, 34, 34, 0.9);
+      animation: flex 3s ease-in-out alternate infinite;
+    }
+
+    @keyframes flex {
+      0% {
+        text-shadow: calc(var(--x)*-1) calc(var(--y)*-1) 0 rgba(145, 249, 229, 0.7),
+        calc(var(--x)*-1.5) calc(var(--y)*1.5) 0 rgba(118, 247, 191, 0.7),
+        calc(var(--y)*-2) calc(var(--x)*-2) 0 rgba(0, 255, 255, .7),
+        var(--x) var(--y) 0 rgba(95, 221, 157, 0.7);
+      }
+      100% {
+        text-shadow: var(--x) var(--y) 0 rgba(145, 249, 229, 0.7),
+        var(--x) calc(var(--y)*-1) 0 rgba(118, 247, 191, 0.7),
+        var(--y) var(--x) 0 rgba(0, 255, 255, .7),
+        calc(var(--x)*-2) calc(var(--y)*-2) 0 rgba(95, 221, 157, 0.7);
+      }
+    }
+  </style>
+
+  <script>
+    const hero = document.querySelector('.hero');
+    const text = hero.querySelector('h1');
+    const walk = 100;
+
+    const shadow = e => {
+      const {
+        offsetWidth: width,
+        offsetHeight: height
+      } = hero;
+      let {
+        offsetX: x,
+        offsetY: y
+      } = e;
+      if (hero !== e.target) {
+        x = x + e.target.offsetLeft;
+        y = y + e.target.offsetTop;
+      }
+
+      const xWalk = Math.round((x / width * walk) - (walk / 2));
+      const yWalk = Math.round((y / height * walk) - (walk / 2));
+
+      document.documentElement.style.setProperty(`--x`, `${xWalk}px`);
+      document.documentElement.style.setProperty(`--y`, `${yWalk}px`);
+
+      // Transform shadows without CSS animation ( but without CSS vars );
+      // text.style.textShadow =`
+      //   ${xWalk * -1}px ${yWalk * -1}px 0 rgba(255,0,255,.7),
+      //   ${xWalk * -1}px ${yWalk}px 0 rgba(255,255,0,.7),
+      //   ${yWalk * -1}px ${xWalk * -1}px 0 rgba(0,255,255,.7),
+      //   ${yWalk}px ${xWalk}px 0 rgba(0,0,0,.7)
+      // `;
+    }
+
+    hero.addEventListener('mousemove', shadow);
+  </script>
 </body>
+
 </html>

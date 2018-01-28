@@ -10,28 +10,36 @@
 <body>
 
   <div class="photobooth">
-    <div class="controls">
-      <button onClick="takePhoto()">Take Photo</button>
+    <a data-control="takePhoto" href>Take Photo</a>
+    <a data-control="spectrascope" href>Spectrascope</a>
+    <a data-control="chromakey" href>Chromakey</a>
+    <a data-control="colorize" href>Colorize</a>
+    <div class="controls" data-effect="chromakey">
       <div class="rgb">
         <label for="rmin">Red Min:</label>
         <input type="range" min=0 max=255 name="rmin">
         <label for="rmax">Red Max:</label>
-        <input type="range" min=0 max=255 name="rmax">
+        <input type="range" min=0 max=255 name="rmax" value=255>
 
         <br>
 
         <label for="gmin">Green Min:</label>
         <input type="range" min=0 max=255 name="gmin">
         <label for="gmax">Green Max:</label>
-        <input type="range" min=0 max=255 name="gmax">
+        <input type="range" min=0 max=255 name="gmax" value=255>
 
         <br>
 
         <label for="bmin">Blue Min:</label>
         <input type="range" min=0 max=255 name="bmin">
         <label for="bmax">Blue Max:</label>
-        <input type="range" min=0 max=255 name="bmax">
+        <input type="range" min=0 max=255 name="bmax" value=255>
       </div>
+    </div>
+    <div class="controls" data-effect="colorize">
+      <input type="radio" name="colorize" value="red" checked data-factor="0, -1, -1"> Red
+      <input type="radio" name="colorize" value="blue" data-factor="-1, -1, 1"> Blue
+      <input type="radio" name="colorize" value="green" data-factor="-1, 1, -1"> Green
     </div>
 
     <canvas class="photo"></canvas>
