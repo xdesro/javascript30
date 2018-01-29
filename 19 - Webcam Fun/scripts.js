@@ -57,7 +57,7 @@ const paintToCanvas = () => {
       ctx.globalAlpha = 1;
       colorize(pixels);
     } else if (activeEffect === "spectrascope") {
-      ctx.globalAlpha = 0.3;
+      ctx.globalAlpha = 0.1;
       spectrascope(pixels);
     } else if (activeEffect === "chromakey") {
       ctx.globalAlpha = 1;
@@ -71,20 +71,20 @@ const takePhoto = () => {
   snap.currentTime = 0;
   snap.play();
 
-  const data = canvas.toDataURL("image/jpeg");
+  const data = canvas.toDataURL("image/png");
   const link = document.createElement("a");
   link.href = data;
   link.setAttribute("download", "sick-as-fuck");
   link.classList.add("photo");
-  link.innerHTML = `<img src="${data}" alt="Sick as fuck duder" />`;
+  link.innerHTML = `<img src="${data}" alt="Sick as fuck duder photo" />`;
   strip.insertBefore(link, strip.firstChild);
 };
 
 const colorize = pixels => {
   for (let i = 0; i < pixels.data.length; i += 4) {
-    pixels.data[i + 0] = pixels.data[i + 0] + colorizeColor[0] * 100;
-    pixels.data[i + 1] = pixels.data[i + 1] + colorizeColor[1] * 100;
-    pixels.data[i + 2] = pixels.data[i + 2] + colorizeColor[2] * 100;
+    pixels.data[i + 0] = pixels.data[i + 0] + colorizeColor[0] * 50;
+    pixels.data[i + 1] = pixels.data[i + 1] + colorizeColor[1] * 50;
+    pixels.data[i + 2] = pixels.data[i + 2] + colorizeColor[2] * 50;
   }
   return pixels;
 };

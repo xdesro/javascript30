@@ -16,6 +16,7 @@ html {
   background: linear-gradient(to bottom, #fff, #f2f2f2);
   font-family: "Roboto Mono", monospace;
   padding: 10px;
+  min-height: 100vh;
 }
 body {
   &:before {
@@ -43,8 +44,7 @@ body {
   width: 100%;
 }
 .player {
-  // position: absolute;
-  // top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   width: 200px;
   max-width: 50vw;
   margin-top: -25vw;
@@ -77,25 +77,6 @@ a:not(.photo) {
     width: 100px;
     overflow-x: scroll;
     margin: 1%;
-
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    // background: white;
   }
-  // a {
-  //   &:nth-child(5n+1) img {
-  //     transform: rotate(10deg);
-  //   }
-  //   &:nth-child(5n+2) img {
-  //     transform: rotate(-2deg);
-  //   }
-  //   &:nth-child(5n+3) img {
-  //     transform: rotate(8deg);
-  //   }
-  //   &:nth-child(5n+4) img {
-  //     transform: rotate(-11deg);
-  //   }
-  //   &:nth-child(5n+5) img {
-  //     transform: rotate(12deg);
-  //   }
-  // }
 }
