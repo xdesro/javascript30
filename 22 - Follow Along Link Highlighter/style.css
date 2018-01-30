@@ -1,59 +1,62 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:100,400");
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 body {
   min-height: 100vh;
   margin: 0; /* Important! */
-  font-family: sans-serif;
-  background:
-    linear-gradient(45deg, hsla(340, 100%, 55%, 1) 0%, hsla(340, 100%, 55%, 0) 70%),
-    linear-gradient(135deg, hsla(225, 95%, 50%, 1) 10%, hsla(225, 95%, 50%, 0) 80%),
-    linear-gradient(225deg, hsla(140, 90%, 50%, 1) 10%, hsla(140, 90%, 50%, 0) 80%),
-    linear-gradient(315deg, hsla(35, 95%, 55%, 1) 100%, hsla(35, 95%, 55%, 0) 70%);
+  font-family: "Roboto Mono", monospace;
+  background: linear-gradient(to bottom, #fff, #f2f2f2);
 }
 
 .wrapper {
-  margin:0 auto;
-  max-width:500px;
+  margin: 0 auto;
+  width: 500px;
+  max-width: 100%;
   font-size: 20px;
   line-height: 2;
+  color: #666;
   position: relative;
 }
 
 a {
   text-decoration: none;
-  color:black;
-  background:rgba(0,0,0,0.05);
-  border-radius: 20px
+  color: #111;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  padding: 0 5px;
 }
 
 .highlight {
   transition: all 0.2s;
-  border-bottom:2px solid white;
+  border-bottom: 2px solid white;
   position: absolute;
-  top:0;
-  background:white;
-  left:0;
+  top: 0;
+  background: linear-gradient(45deg, rgb(255, 0, 119), rgb(250, 204, 0));
+  left: 0;
   z-index: -1;
-  border-radius:20px;
+  border-radius: 20px;
   display: block;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2)
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
-
 .menu {
+  width: 800px;
+  max-width: 100%;
   padding: 0;
   display: flex;
   list-style: none;
-  justify-content: center;
-  margin:100px 0;
+  justify-content: space-between;
+  margin: 100px auto;
 }
 
 .menu a {
   display: inline-block;
-  padding:5px;
-  margin:0 20px;
-  color:black;
+  text-align: center;
+  padding: 5px;
+  color: black;
 }
